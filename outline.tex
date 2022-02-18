@@ -1,0 +1,97 @@
+\documentclass{beanSET}
+
+\name{Akash Dhiraj}
+\mail{ad739@cornell.edu}
+\coursename{}
+\courseNo{}
+\semester{}
+\hwNo{}
+\duedate{}
+
+\usepackage{amsthm,amsmath, amssymb}
+
+%setup for colored theorem boxes
+\usepackage[dvipsnames]{xcolor}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
+
+\mdfdefinestyle{mdbluebox}{%
+    linewidth=0.5pt,
+    skipabove=12pt,
+    frametitleaboveskip=5pt,
+    frametitlebelowskip=0pt,
+    skipbelow=2pt,
+    frametitlefont=\bfseries,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    nobreak=true,
+    backgroundcolor=TealBlue!5,
+    linecolor=blue,
+}
+
+\declaretheoremstyle[
+    headfont=\sffamily\bfseries\color{MidnightBlue},
+    mdframed={style=mdbluebox},
+    headpunct={\\[3pt]},
+    postheadspace={0pt}
+]{thmbluebox}
+
+\declaretheorem[style=thmbluebox,name=Theorem,numbered = no]{theorem}
+
+\begin{document}
+
+\begin{center}
+\huge \textbf{Outline for Topoligical Combinatorics}
+\end{center}
+
+The premise of this talk would be to discuss the some of the basics of topology and then eventually state (and prove, maybe\footnote{For the sake of time, we might limit the discussion of Borsuk-Ulam to a proof sketch.}) the Borsuk-Ulam Theorem, Sperner's Lemma, and Brouwer's fixed point theorem. Following which, we present a variety of applications in combinatorics. Most of the material comes from \cite{topcombi}.\\
+\\
+
+Topological Results:
+
+\begin{theorem}[Brower Fixed Point Theorem]
+    Let $K \subseteq \mathbb R^n$ be convex and compact, and let $f: K \to K$ be continuous. Then, there exists $k \in K$ such that $f(k) = k$.
+\end{theorem}
+
+\begin{theorem}[Borsuk-Ulam Theorem]
+    Suppose $f: \mathbb S^n \to \mathbb R^n$ was continuous. Then, there is some $x \in \mathbb S^n$ such that $f(x) = f(-x)$.
+\end{theorem}
+
+Combinatorial Results:
+
+\begin{theorem}
+    Every (open) necklace with $d$ kinds of jewels can be divided between two thieves using no more than $d$ cuts.
+\end{theorem}
+
+\begin{theorem}[Kneser Conjecture]
+    For all $k > 0$ and $n \geq 2k - 1$, the chromatic number of the Kneser graph $KG_{n,k}$ is $\chi(KG_{n,k}) = n - 2k + 2$.
+\end{theorem}
+
+The game of Hex is played between two players, red and green. Each of them takes turns coloring one hexagon in a grid. After all hexagons are filled, red wins if there is a red path connecting the top and bottom, and green wins of there is a green path connecting the left and right.
+
+\begin{theorem}
+    The game of Hex cannot end in a draw.
+\end{theorem}
+
+
+\vfill
+
+\bibliography{ref}
+\bibliographystyle{plain}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
