@@ -1,20 +1,28 @@
 \documentclass[12pt]{amsart}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{rem}{Remark}
 
 \usepackage[margin=1in]{geometry}
+\usepackage{caption}
+\usepackage{tikz}
 
 \begin{document}
     \title{Applying the Borsuk-Ulam Theorem}
     \author{Akash Dhiraj}
     \email{ad739@cornell.edu}
     \author{Sidhanth Holalkere}
-    \email{sid@cornell.edu}
+    \email{}
     \date{\today}
 
     %add reference to borsuk-ulam
     \begin{abstract}
-        This writeup acts as a sketch of a presentation on topological combinatorics given for Math 2240 at Cornell. We hope present one potential answer to the question of ``why topology?" by connecting two seemingly disparate areas of mathematics: combinatorics (where we work with the discrete) and topology (where we work with the continuous). Broadly, the talk begins with a general introduction to topology, setting up the neccesary machinary to sate and prove the famous \emph{Borsuk-Ulam} theorem (), and continues to discuss its various combinatorial applications. 
+        This writeup acts as a sketch of a presentation on topological combinatorics given for Math 2240 at Cornell. We hope present one potential answer to the question of ``why topology?" by connecting two seemingly disparate areas of mathematics: combinatorics (where we work with the discrete) and topology (where we work with the continuous). Broadly, the talk begins with a general introduction to topology, setting up the neccesary machinary to state and prove the famous \emph{Borsuk-Ulam} theorem (Theorem \ref{main}), and continues to discuss its various combinatorial applications. 
     \end{abstract}
 
     \maketitle
@@ -27,21 +35,26 @@
 
     \section{Borsuk-Ulam}
 
-    \begin{theorem}
+    \begin{thm}[Borsuk-Ulam]
+        \label{main}
         Given a continuous map $f: \mathbb S^n \to \mathbb R^n$, $f$ identifies two antipodal points: i.e. $\exists \mathbf x \in \mathbb S^n$ such that $f(\mathbf x) = f(-\mathbf x)$.
-    \end{theorem}
+    \end{thm}
 
     \newpage
 
     \section{Hex Game}
 
-    The game of Hex is played between two players, say red and green. Each of them takes turns coloring a finite hexagonal grid. After all hexagons are colored, red wins if there's a red path connecting the top and bottom, and green wins if there's a green path connecting the left and right. 
+    The game of Hex is played between two players, say Red and Green. Each of them takes turns coloring a finite hexagonal grid. After all hexagons are colored, Red wins if there's a red path connecting the top and bottom, and Green wins if there's a green path connecting the left and right. 
 
-    \begin{theorem}
+    \begin{rem}
+        Play a game after introducing Hex give a feel for the problem (if time permits). 
+    \end{rem}
+
+    \begin{thm}
         Hex can never end in a tie.
-    \end{theorem}
+    \end{thm}
 
-    We won't assume things
+    We won't assume that
 
 
 
@@ -49,7 +62,23 @@
 
     \section{Fair Division}
 
-    Sidhanth and Akash steal a necklace with precious stones arranged along it. Suppose there were $d$ kinds of stones, an even number of each kind. Naturally, we'd like to split the stones between us such that we both have the same number of jewels of each kind
+    Sidhanth and Akash steal an open necklace with precious stones arranged along it. Suppose there are $d$ kinds of stones, an even number of each kind. Neither of us know the value of the necklace nor the values of the different jewels. Hence, we decide to split the stones between us such that we both have the same number of jewels of each kind. 
+    
+    %add picture of necklace and one way to cut it
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            
+        \end{tikzpicture}
+        \caption{Example necklace and cut: segments labelled $A$ and $S$ go to Akash and Sid respectively.}
+    \end{figure}
+
+    We split the stones by making cuts on along the necklace, breaking it into segments and assigning each segment to either party.
+
+    \begin{thm}
+        The minimal number of cuts needed is at most $d$.
+    \end{thm}
+
+    
 
 
     \newpage
