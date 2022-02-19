@@ -27,7 +27,7 @@
 
     \maketitle
 
-    Through the course of this talk, we hope to convince 
+    We assume no more than familiarity with the standard Euclidean topology in $\mathbb R^n$.
 
     \section{Setup}
 
@@ -62,21 +62,27 @@
 
     \section{Fair Division}
 
-    Sidhanth and Akash steal an open necklace with precious stones arranged along it. Suppose there are $d$ kinds of stones, an even number of each kind. Neither of us know the value of the necklace nor the values of the different jewels. Hence, we decide to split the stones between us such that we both have the same number of jewels of each kind. 
+    Suppose you and a friend steal an open necklace with $m$ precious stones arranged along it. There are $d$ kinds of stones (labelled $1,\ldots,d$), an even number of each kind. Neither you nor your conspirator know the values of the different stone types. Hence, you decide to split the stones between each of you such that you both have the same number of jewels of each kind. 
     
     %add picture of necklace and one way to cut it
     \begin{figure}[h]
         \begin{tikzpicture}
             
         \end{tikzpicture}
-        \caption{Example necklace and cut: segments labelled $A$ and $S$ go to Akash and Sid respectively.}
+        \caption{Example necklace and cut: segments labelled $1$ and $-1$ go to thief $1$ and $2$ respectively.}
     \end{figure}
 
-    We split the stones by making cuts on along the necklace, breaking it into segments and assigning each segment to either party.
+    Instead of removing the individual stones one by one, you decide to split the jewels by making as few cuts as possible to the necklace, divvying out the remaining strands between yourselves. 
 
     \begin{thm}
         The minimal number of cuts needed is at most $d$.
     \end{thm}
+
+    \begin{proof}
+        At its current state, there isn't any good way to apply Borsuk-Ulam on our puzzle. Let's change that! We'll consider the interval $[0,1]$ as our neckalce. Break $[0,1]$ into the union of subintervals $$\bigcup_{k=0}^{m-2} \left[\frac km, \frac{k+1}{m}\right) \cup \left[\frac{m-1}{m}, 1\right].$$ The $k$th stone corresponds to the $k$th subinterval. Then, define characteristic functions for the stones as $f_i:[0,1] \to \{0,1\}$ for $i \in [d]$ such that $$f_i(x) = \begin{cases} 1 & x \in [k/m, (k+1)/m) \text{ and the $k$th stone is of type $i$}\\ 0 & \text{otherwise} \end{cases}.$$ Fix $0 = z_0 \leq z_1 \leq z_2 \leq \cdots \leq z_d \leq 1 = z_{d+1}$ to act as the cuts on our string. If we wish to assign the part $[z_i,z_{i-1}]$ ($i = 1, \ldots, d+1$) to the first thief, set $x_i = \sqrt{z_{i} - z_{i-1}}$ and $x_i = -\sqrt{z_i - z_{i-1}}$ otherwise. The tupple $(x_1,x_2,\ldots,x_{d+1}) \in \mathbb S^d$ encodes a cut of the necklace. Noting that $z_j = \sum_{i=1}^{j} x_i^2$, consider the continuous map $$(x_1,x_2,\ldots,x_{d+1}) \to \left(\sum_{j=1}^{d+1} \mathrm{sign}(x_j) \int_{[z_j,z_{j-1}]} f_1(x) \; \mathrm{d}x , \ldots, \sum_{j=1}^{d+1} \mathrm{sign}(x_j) \int_{[z_j,z_{j-1}]} f_d(x) \; \mathrm{d}x\right).$$ Since $f$ is antipodal, theorem (add refs) tells us $\exists \mathbf x \in \mathbb S^n$ such that $f(\mathbf x) = 0$. The cut associated $\mathbf x$ is a fair division. 
+
+        However, we might run into a problem translating this back into the discrete case! What if some $z_i$ assocaited $\mathbf x$ lies in $\left(k/m, (k+1)/m\right)$? Suppose $\left[k/m, (k+1)/m\right)$ is a stone of type $j$. Since $\mathbf x$ is a fair division, the total number of green stones.
+    \end{proof}
 
     
 
