@@ -29,9 +29,7 @@
 
     \maketitle
 
-    For the sake avoiding repetition and our own carelessness, assume all maps are continuous unless stated otherwise. 
-    
-    Much of the material from this talk comes from \cite{topcombi}.
+    For the sake avoiding repetition and our own carelessness, assume all maps are continuous unless stated otherwise.
 
     \section{Borsuk-Ulam \& Alternate Formulations}
 
@@ -52,7 +50,7 @@
         Given a continuous map $f: \mathbb S^n \to \mathbb R^n$, $f$ identifies two antipodal points: i.e. $\exists \mathbf x \in \mathbb S^n$ such that $f(\mathbf x) = f(-\mathbf x)$.
     \end{thm}
 
-    While originally formualted by Stanislaw Ulam, the first proof of Theorem \ref{main} was given by Karol Borsuk. Since then Borsuk-Ulam has found a number of equivalent formulations, proofs, and applications both at the heart and entirely away from topology. Ultimately, we only hope to present of small slice this. For a comprehensive treatment, see \cite{stein}.
+    While originally formualted by Stanislaw Ulam, the first proof of Theorem \ref{main} was given by Karol Borsuk. Since then Borsuk-Ulam has found a number of equivalent formulations, proofs, and applications both at the heart and entirely away from topology. Ultimately, we only hope to present of small slice of this. 
 
     \begin{ex}
         The one dimension case is boils down to IVT. For $f: \mathbb S^1 \to \mathbb R$, consider $F(x) = f(x) - f(-x)$. Notice that our problem reduces to looking for the zeros of $F$. Now, pick some $x \in \mathbb S^1$. If $F(x) = 0$, we're done. Otherwise, $F(x)$ and $F(-x)$ have differing signs by the antipodality of $F$. Hence, IVT gives the existence of $y \in \mathbb S^1$ such that $F(y) = 0 \implies f(y) = f(-y)$. 
@@ -91,7 +89,7 @@
         \end{enumerate}
     \end{proof}
 
-    Finally, we'll prove the $n=2$ case. While the higher dimensional cases aren't excessively technical, we'll skip it to stay within time. See \cite[ch 2]{topcombi} for the full proof.
+    Finally, we'll prove the $n=2$ case. While the higher dimensional cases aren't excessively technical, we'll skip it to stay within time. See \cite{stein} for the full proof.
 
     \begin{proof}[Proof of Borsuk-Ulam for $n=2$]
         For continuous $f: \mathbb S^2 \to \mathbb R^2$, let $g(x) = f(x) - f(-x)$. Borsuk-Ulam is then equivalent to finding a zero of $g$. Observe that $g(-x) = -g(x)$. This means that antipodal points are reflections across the origin. Pick $p$ on the equator. If $g(p) = 0$, we're done. Otherwise, we observe the image of $g$ on the equator. This path encloses the origin in $\mathbb R^2$. As we continuously deform the equatorial path towards the north pole, it continuously deforms to a point: the value of $g$ at the north pole. This means that at some point the image of $g$ on the path must have intersected the origin, as required.
@@ -122,10 +120,8 @@
     The presence of hexagons muddles things. Convert our hexagonal tiling into a graph by changing the hexagons to nodes and drawing edges between adjacent hexagons.
     
     \begin{proof}
-        Naturally, we can't have both Red and Green win. Then we'd have green and red paths cutting into each other. Suppose they both lose. Call $G_L$ the set of green nodes connecting to the left edge by a path of green. Call $G_R$ the green nodes that don't have this property. Similarly, construct $R_B$ for reds connecting to the bottom and $R_T$ for those that don't. Then, we'll make the make the map $f$ from our board to itself such that $$f(v) = \begin{cases} v + e_1 & v \in G_L\\ v - e_1 & v \in G_R\\ v + e_2 & v \in R_B\\ v -e_2 & v \in R_U\end{cases},$$ where $e_1$ and $e_2$ rightward and upward motion by one unit respectively. $f(v)$ stays on the board because we're assuming a draw. For $x$ within triangles formed by $v_1,v_2,v_3$, there exists reals $x_1,x_2,x_3 > 0$ such that $x = \sum x_i v_i$ and $\sum x_i = 1$. We'll set $f(x) = \sum x_i f(v_i)$. Since $f$ is continuous, there exists a fixed point $\overline{x} = \sum x_iv_i$. Let $f(v_i) = \epsilon_i$. Then, $\sum x_i \epsilon_i = 0$, but this would imply $\epsilon_i = -\epsilon_j$ for some $i,j$, a contradiction since $G_L$ and $R_B$ can't connect to $G_R$ and $R_U$ respectively.
+        We can't have both Red and Green win. Then we'd have green and red paths cutting into each other. Suppose they both lose. Call $G_L$ the set of green nodes connecting to the left edge by a path of green. Call $G_R$ the green nodes that don't have this property. Similarly, construct $R_B$ for reds connecting to the bottom and $R_T$ for those that don't. Then, we'll make the make the map $f$ from our board to itself such that $$f(v) = \begin{cases} v + e_1 & v \in G_L\\ v - e_1 & v \in G_R\\ v + e_2 & v \in R_B\\ v -e_2 & v \in R_U\end{cases},$$ where $e_1$ and $e_2$ rightward and upward motion by one unit respectively. $f(v)$ stays on the board because we're assuming a draw. For $x$ within triangles formed by $v_1,v_2,v_3$, there exists reals $x_1,x_2,x_3 > 0$ such that $x = \sum x_i v_i$ and $\sum x_i = 1$. We'll set $f(x) = \sum x_i f(v_i)$. Since $f$ is continuous, Theorem \ref{brouwer} gives a fixed point $\overline{x} = \sum x_iv_i$. Let $f(v_i) = \epsilon_i$. Then, $\sum x_i \epsilon_i = 0$, but this would imply $\epsilon_i = -\epsilon_j$ for some $i,j$, a contradiction since $G_L$ and $R_B$ can't connect to $G_R$ and $R_U$ respectively.
     \end{proof}
-
-    \newpage
 
     \section{Fair Division}
 
@@ -166,12 +162,13 @@
             \node (S1) at (1.5, -0.75) {$S$};
             \node (S2) at (10,-0.75) {$S$};
         \end{tikzpicture}
-        \caption{Example necklace and cut: segments labelled $A$ go to Akash and those labelled $S$ go to Sid. Our necklace has $14$ stones of $4$ types and was split using $4$ cuts.}
+        \caption{Example necklace and cut: segments labelled $A$ go to Akash and those labelled $S$ go to. Our necklace has $14$ stones of $4$ types and was split using $4$ cuts.}
     \end{figure}
 
     Instead of removing the individual stones one by one, you decide to split the jewels by making as few cuts as possible to the necklace, divvying out the remaining strands between yourselves. 
 
     \begin{thm}
+      \label{2thief}
         The minimal number of cuts needed is at most $d$.
     \end{thm}
 
@@ -180,8 +177,18 @@
 
         However, we might run into a problem translating this back into the discrete case! What if some $z_i$ associated with $\mathbf x$ lies in $\left(k, k+1\right)$ for some $k \in \mathbb Z$? (I.e. we cut partially into one of the jewels.) Given a non-integral cut subdividing a stone of type $i$, where a portion of stone $i$ is assigned to the first thief, we know our cut is either unnecessary or there exists at least one other partial cut into stones of type $i$ assigned to thief one since the sums of lengths of stone $i$ intervals is an integer. In the latter case, we can move the first ``non-integral" cut to the right and the remaining to the left, without changing the loot for each thief.
     \end{proof}
-
     
+    One might push this further by asking of the case when we have $m$ thieves and $k$ jewels. Let $c(m,k)$ denote the minimal numbers of cuts that always suffice to split the jewels among the $k$ thieves. If all jewels of the same color are kept together, then we know we need at most $(m-1)k$ cuts, i.e. $c(m,k) \geq (m-1)k$. In fact, this is always sufficient.
+
+    \begin{thm}
+      $c(m,k) = (m-1)k$.
+    \end{thm}
+
+    \begin{proof}[Proof sketch of $m = 2^j$ case]
+      Repeatedly apply Theorem \ref{2thief}. Put thieves into two groups of size $2^{j-1}$ and split the necklace between the two groups. Then, by induction, you can split the necklace among all the thieves.
+    \end{proof}
+
+    A full proof can be found in \cite{alon} along with more necklace related generalizations.
     
     \bibliography{cite}
     \bibliographystyle{plain}
