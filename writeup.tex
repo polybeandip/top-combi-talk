@@ -16,20 +16,33 @@
 \usepackage{hyperref}
 
 \begin{document}
-    \title{Applying the Borsuk-Ulam Theorem}
-    \author{Akash Dhiraj}
-    \email{ad739@cornell.edu}
-    \author{Sidhanth Holalkere}
-    \email{}
-    \date{\today}
+\title{Applying the Borsuk-Ulam Theorem} \author{Akash Dhiraj}
+\email{ad739@cornell.edu} \author{Sidhanth Holalkere} \email{}
+\date{\today}
 
+<<<<<<< HEAD
     %add reference to borsuk-ulam
     \begin{abstract}
         This writeup acts as a sketch of a presentation on topological combinatorics given for Math 2240 at Cornell. We hope to present one potential answer to the question of ``why topology?" by connecting two seemingly disparate areas of mathematics: combinatorics (where we work with the discrete) and topology (where we work with the continuous).
     \end{abstract}
+=======
+% add reference to borsuk-ulam
+\begin{abstract}
+  This writeup acts as a sketch of a presentation on topological
+  combinatorics given for Math 2240 at Cornell. We hope present one
+  potential answer to the question of ``why topology?" by connecting
+  two seemingly disparate areas of mathematics: combinatorics (where
+  we work with the discrete) and topology (where we work with the
+  continuous). Broadly, the talk begins with a general introduction to
+  topology, setting up the neccesary machinary to state and prove the
+  famous \emph{Borsuk-Ulam} theorem (Theorem \ref{main}), and
+  continues to discuss its various combinatorial applications.
+\end{abstract}
+>>>>>>> e7395e4df03f858212e946eaf79b700ea70d0c45
 
-    \maketitle
+\maketitle
 
+<<<<<<< HEAD
     For the sake avoiding repetition and our own carelessness, assume all maps are continuous unless stated otherwise. 
     
     Much of the material from this talk comes from \cite{topcombi}.
@@ -47,12 +60,26 @@
     \end{dfn}
 
     Note that the superscripts of $\mathbb S^n$ and $B^n$ denote the dimensions of our sets, not the dimension of the space they live in. I.e. the boundary of $B^n$ is $S^{n-1}$, not $S^n$.
+=======
+We assume no more than familiarity with the standard Euclidean
+topology in $\mathbb R^n$.
 
-    \begin{thm}[Borsuk-Ulam]
-        \label{main}
-        Given a continuous map $f: \mathbb S^n \to \mathbb R^n$, $f$ identifies two antipodal points: i.e. $\exists \mathbf x \in \mathbb S^n$ such that $f(\mathbf x) = f(-\mathbf x)$.
-    \end{thm}
+\section{Setup}
 
+\newpage
+
+\section{Borsuk-Ulam}
+>>>>>>> e7395e4df03f858212e946eaf79b700ea70d0c45
+
+\begin{thm}[Borsuk-Ulam]
+  \label{main}
+  Given a continuous map $f: \mathbb S^n \to \mathbb R^n$, $f$
+  identifies two antipodal points: i.e.
+  $\exists \mathbf x \in \mathbb S^n$ such that
+  $f(\mathbf x) = f(-\mathbf x)$.
+\end{thm}
+
+<<<<<<< HEAD
     While originally formualted by Stanislaw Ulam, the first proof of Theorem \ref{main} was given by Karol Borsuk. Since then Borsuk-Ulam has found a number of equivalent formulations, proofs, and applications both at the heart and entirely away from topology. Ultimately, we only hope to present of small slice this. For a comprehensive treatment, see \cite{stein}.
 
     \begin{ex}
@@ -107,17 +134,25 @@
     \end{lem}
     
     \newpage
+=======
+\newpage
+>>>>>>> e7395e4df03f858212e946eaf79b700ea70d0c45
 
-    \section{Hex Game}
+\section{Hex Game}
 
-    The game of Hex is played between two players, say Red and Green. Each of them takes turns coloring a finite hexagonal grid. After all hexagons are colored, Red wins if there's a red path connecting the top and bottom, and Green wins if there's a green path connecting the left and right. 
+The game of Hex is played between two players, say Red and Green. Each
+of them takes turns coloring a finite hexagonal grid. After all
+hexagons are colored, Red wins if there's a red path connecting the
+top and bottom, and Green wins if there's a green path connecting the
+left and right.
 
     \begin{rem}
-        Play a game after introducing Hex give a feel for the problem (if time permits). 
+      Play a game after introducing Hex give a feel for the problem
+      (if time permits).
     \end{rem}
 
     \begin{thm}
-        Hex can never end in a tie.
+      Hex can never end in a tie.
     \end{thm}
 
     We won't assume that
@@ -128,57 +163,100 @@
 
     \section{Fair Division}
 
-    Suppose you and a friend steal an open necklace, engraved with $m$ precious stones. There are $d$ kinds of stones (labelled $1,\ldots,d$), an even number of each kind. Neither you nor your co-conspirator know the values of the different stone types. Hence, you decide to split the stones between each of you such that you both have the same number of jewels of each kind. 
+    Suppose you and a friend steal an open necklace, engraved with $m$
+    precious stones. There are $d$ kinds of stones (labelled
+    $1,\ldots,d$), an even number of each kind. Neither you nor your
+    co-conspirator know the values of the different stone
+    types. Hence, you decide to split the stones between each of you
+    such that you both have the same number of jewels of each kind.
     
-    %add picture of necklace and one way to cut it
+    % add picture of necklace and one way to cut it
     \begin{figure}[h]
-        \centering
-        \begin{tikzpicture}[scale =0.95]
-            \draw (-1,0) -- (14,0);
+      \centering
+      \begin{tikzpicture}[scale =0.95]
+        \draw (-1,0) -- (14,0);
 
-            \filldraw[red] (0,0) circle [radius = 0.25];
-            \draw (0.5,-1) -- (0.5,1);
+        \filldraw[red] (0,0) circle [radius = 0.25]; \draw (0.5,-1) --
+        (0.5,1);
 
-            \filldraw[red] (1,0) circle [radius = 0.25];
-            \filldraw[green] (2,0) circle [radius = 0.25];
-            \draw (2.5,-1) -- (2.5,1);
+        \filldraw[red] (1,0) circle [radius = 0.25]; \filldraw[green]
+        (2,0) circle [radius = 0.25]; \draw (2.5,-1) -- (2.5,1);
 
-            \filldraw[blue] (3,0) circle [radius = 0.25];
-            \filldraw[yellow] (4,0) circle [radius = 0.25];
-            \filldraw[blue] (5,0) circle [radius = 0.25];
-            \filldraw[green] (6,0) circle [radius = 0.25];
-            \filldraw[green] (7,0) circle [radius = 0.25];
-            \draw (7.5,-1)-- (7.5,1);
+        \filldraw[blue] (3,0) circle [radius = 0.25];
+        \filldraw[yellow] (4,0) circle [radius = 0.25];
+        \filldraw[blue] (5,0) circle [radius = 0.25]; \filldraw[green]
+        (6,0) circle [radius = 0.25]; \filldraw[green] (7,0) circle
+        [radius = 0.25]; \draw (7.5,-1)-- (7.5,1);
 
-            \filldraw[green] (8,0) circle [radius = 0.25];
-            \filldraw[blue] (9,0) circle [radius = 0.25];
-            \filldraw[green] (10,0) circle [radius = 0.25];
-            \filldraw[yellow] (11,0) circle [radius = 0.25];
-            \filldraw[blue] (12,0) circle [radius = 0.25];
-            \draw (12.5,-1) -- (12.5,1);
+        \filldraw[green] (8,0) circle [radius = 0.25]; \filldraw[blue]
+        (9,0) circle [radius = 0.25]; \filldraw[green] (10,0) circle
+        [radius = 0.25]; \filldraw[yellow] (11,0) circle [radius =
+        0.25]; \filldraw[blue] (12,0) circle [radius = 0.25]; \draw
+        (12.5,-1) -- (12.5,1);
 
-            \filldraw[green] (13,0) circle [radius = 0.25];
+        \filldraw[green] (13,0) circle [radius = 0.25];
 
-            \node (A1) at (0,0.75) {$A$}; 
-            \node (A2) at (5,0.75) {$A$};
-            \node (A1) at (13,0.75) {$A$};
+        \node (A1) at (0,0.75) {$A$}; \node (A2) at (5,0.75) {$A$};
+        \node (A1) at (13,0.75) {$A$};
 
-            \node (S1) at (1.5, -0.75) {$S$};
-            \node (S2) at (10,-0.75) {$S$};
-        \end{tikzpicture}
-        \caption{Example necklace and cut: segments labelled $A$ go to Akash and those labelled $S$ go to Sid. Our necklace has $14$ stones of $4$ types and was split using $4$ cuts.}
+        \node (S1) at (1.5, -0.75) {$S$}; \node (S2) at (10,-0.75)
+        {$S$};
+      \end{tikzpicture}
+      \caption{Example necklace and cut: segments labelled $A$ go to
+        Akash and those labelled $S$ go to Sid. Our necklace has $14$
+        stones of $4$ types and was split using $4$ cuts.}
     \end{figure}
 
-    Instead of removing the individual stones one by one, you decide to split the jewels by making as few cuts as possible to the necklace, divvying out the remaining strands between yourselves. 
+    Instead of removing the individual stones one by one, you decide
+    to split the jewels by making as few cuts as possible to the
+    necklace, divvying out the remaining strands between yourselves.
 
     \begin{thm}
-        The minimal number of cuts needed is at most $d$.
+      The minimal number of cuts needed is at most $d$.
     \end{thm}
 
     \begin{proof}
-        At its current state, there isn't any good way to apply Borsuk-Ulam on our puzzle. Let's change that! We'll consider the interval $[0,m]$ as our neckalce. Break $[0,m]$ into the union of subintervals $$\bigcup_{k=0}^{m-2} \left[k, k+1\right) \cup \left[m-1, m\right].$$ The $k$th stone corresponds to the $k$th subinterval. Then, define characteristic functions for the stones as $f_i:[0,m] \to \{0,1\}$ for $i \in [d]$ such that $$f_i(x) = \begin{cases} 1 & x \in [k-1, k) \text{ and the $k$th stone is of type $i$}\\ 0 & \text{otherwise} \end{cases}.$$ Fix $0 = z_0 \leq z_1 \leq z_2 \leq \cdots \leq z_d \leq m= z_{d+1}$ to act as the cuts on our string. If we wish to assign the part $[z_i,z_{i-1}]$ ($i = 1, \ldots, d+1$) to the first thief, set $x_i = \left(\sqrt{z_{i} - z_{i-1}}\right)/m$ and $x_i = -\left(\sqrt{z_i - z_{i-1}}\right)/m$ otherwise. The tupple $(x_1,x_2,\ldots,x_{d+1}) \in \mathbb S^d$ encodes a cut of the necklace. Noting that $z_j = \sum_{i=1}^{j} m^2x_i^2$, consider the continuous map $$(x_1,x_2,\ldots,x_{d+1}) \to \left(\sum_{j=1}^{d+1} \mathrm{sign}(x_j) \int_{[z_j,z_{j-1}]} f_1(x) \; \mathrm{d}x , \ldots, \sum_{j=1}^{d+1} \mathrm{sign}(x_j) \int_{[z_j,z_{j-1}]} f_d(x) \; \mathrm{d}x\right).$$ Since $f$ is antipodal, theorems \ref{main} and \ref{} tell us $\exists \mathbf x \in \mathbb S^n$ such that $f(\mathbf x) = 0$. The cut associated $\mathbf x$ is a fair division. 
+      At its current state, there isn't any good way to apply
+      Borsuk-Ulam on our puzzle. Let's change that! We'll consider the
+      interval $[0,m]$ as our neckalce. Break $[0,m]$ into the union
+      of subintervals
+      $$\bigcup_{k=0}^{m-2} \left[k, k+1\right) \cup \left[m-1,
+        m\right].$$ The $k$th stone corresponds to the $k$th
+      subinterval. Then, define characteristic functions for the
+      stones as $f_i:[0,m] \to \{0,1\}$ for $i \in [d]$ such
+      that
+      $$f_i(x) = \begin{cases} 1 & x \in [k-1, k) \text{ and the $k$th
+          stone is of type $i$}\\ 0 & \text{otherwise} \end{cases}.$$
+      Fix
+      $0 = z_0 \leq z_1 \leq z_2 \leq \cdots \leq z_d \leq m= z_{d+1}$
+      to act as the cuts on our string. If we wish to assign the part
+      $[z_i,z_{i-1}]$ ($i = 1, \ldots, d+1$) to the first thief, set
+      $x_i = \left(\sqrt{z_{i} - z_{i-1}}\right)/m$ and
+      $x_i = -\left(\sqrt{z_i - z_{i-1}}\right)/m$ otherwise. The
+      tupple $(x_1,x_2,\ldots,x_{d+1}) \in \mathbb S^d$ encodes a cut
+      of the necklace. Noting that $z_j = \sum_{i=1}^{j} m^2x_i^2$,
+      consider the continuous map
+      $$(x_1,x_2,\ldots,x_{d+1}) \to \left(\sum_{j=1}^{d+1}
+        \mathrm{sign}(x_j) \int_{[z_j,z_{j-1}]} f_1(x) \; \mathrm{d}x
+        , \ldots, \sum_{j=1}^{d+1} \mathrm{sign}(x_j)
+        \int_{[z_j,z_{j-1}]} f_d(x) \; \mathrm{d}x\right).$$ Since $f$
+      is antipodal, theorems \ref{main} and \ref{} tell us
+      $\exists \mathbf x \in \mathbb S^n$ such that
+      $f(\mathbf x) = 0$. The cut associated $\mathbf x$ is a fair
+      division.
 
-        However, we might run into a problem translating this back into the discrete case! What if some $z_i$ associated with $\mathbf x$ lies in $\left(k, k+1\right)$ for some $k \in \mathbb Z$? (I.e. we cut partially into one of the jewels.) Given a non-integral cut subdividing a stone of type $i$, where a portion of stone $i$ is assigned to the first thief, we know our cut is either unneccesary or there exists at least one other partial cut into stones of type $i$ assigned to thief one since the sums of lengths of stone $i$ intervals is an integer. In the latter case, we can move the first ``non-integral" cut to the right and the remaining to the left, without changing the loot for each thief.
+      However, we might run into a problem translating this back into
+      the discrete case! What if some $z_i$ associated with
+      $\mathbf x$ lies in $\left(k, k+1\right)$ for some
+      $k \in \mathbb Z$? (I.e. we cut partially into one of the
+      jewels.) Given a non-integral cut subdividing a stone of type
+      $i$, where a portion of stone $i$ is assigned to the first
+      thief, we know our cut is either unneccesary or there exists at
+      least one other partial cut into stones of type $i$ assigned to
+      thief one since the sums of lengths of stone $i$ intervals is an
+      integer. In the latter case, we can move the first
+      ``non-integral" cut to the right and the remaining to the left,
+      without changing the loot for each thief.
     \end{proof}
 
     Some generalizations blah blah
@@ -186,4 +264,4 @@
     \bibliography{cite}
     \bibliographystyle{plain}
     
-\end{document}
+  \end{document}
